@@ -1,0 +1,10 @@
+{% extends "layout/base.html" %}
+
+{% block title %}投票{% endblock %}
+{% block content %}
+<h2>投票</h2>
+<p>以下のフォームから投票してください。</p>
+<div class="ratio ratio-16x9">
+    <iframe src="{{ google_form_url }}" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+{% endblock %}

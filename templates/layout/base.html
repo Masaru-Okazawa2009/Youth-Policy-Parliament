@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}若者政策議会{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand text-danger" href="{{ url_for('index') }}">若者政策議会</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('index') }}">ホーム</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('info') }}">会議情報</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('participation') }}">参加方法</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('news') }}">お知らせ</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('contact') }}">お問い合わせ</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('vote') }}">投票</a></li>
+        {% if current_user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('propose') }}">議題提案</a></li>
+        {% if current_user.is_legislator %}
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('legislator') }}">議員専用</a></li>
+        {% endif %}
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('logout') }}">ログアウト</a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('register') }}">登録</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('login') }}">ログイン</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main class="container mt-4 flex-grow-1">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="alert alert-info">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
+<footer class="bg-white border-top text-center py-3 text-danger">
+  &copy; 2025 若者政策議会
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
