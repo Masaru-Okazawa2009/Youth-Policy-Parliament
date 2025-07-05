@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user, UserMixin
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, IntegerField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired, Length, NumberRange
+from wtforms.validators import DataRequired, Length, NumberRange, Email
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -33,6 +33,13 @@ class Topic(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', backref='topics')
 
+class ContactMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -53,7 +60,13 @@ class ProposeForm(FlaskForm):
     description = TextAreaField('内容', validators=[DataRequired()])
     submit = SubmitField('送信')
 
-@app.route('/')
+class ContactForm(FlaskForm):
+    name = StringField("名前", validators=[DataRequired(), Length(max=80)])
+    email = StringField("メール", validators=[DataRequired(), Email()])
+    message = TextAreaField("メッセージ", validators=[DataRequired()])
+    submit = SubmitField("送信")
+
+
 def index():
     return render_template('index.html')
 
@@ -103,6 +116,29 @@ def propose():
         flash('議題を提案しました')
         return redirect(url_for('index'))
     return render_template('propose.html', form=form)
+
+@app.route("/info")
+def info():
+    return render_template("info.html")
+
+@app.route("/participation")
+def participation():
+    return render_template("participation.html")
+
+@app.route("/news")
+def news():
+    return render_template("news.html")
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        msg = ContactMessage(name=form.name.data, email=form.email.data, message=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash("送信しました")
+        return redirect(url_for("index"))
+    return render_template("contact.html", form=form)
 
 @app.route('/legislator')
 @login_required

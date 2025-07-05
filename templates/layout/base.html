@@ -8,25 +8,30 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('index') }}">若者政策議会</a>
+    <a class="navbar-brand text-danger" href="{{ url_for('index') }}">若者政策議会</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('index') }}">ホーム</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('info') }}">会議情報</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('participation') }}">参加方法</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('news') }}">お知らせ</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('contact') }}">お問い合わせ</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('vote') }}">投票</a></li>
         {% if current_user.is_authenticated %}
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('propose') }}">議題提案</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('propose') }}">議題提案</a></li>
         {% if current_user.is_legislator %}
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('legislator') }}">議員専用</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('legislator') }}">議員専用</a></li>
         {% endif %}
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">ログアウト</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('logout') }}">ログアウト</a></li>
         {% else %}
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">登録</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">ログイン</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('register') }}">登録</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('login') }}">ログイン</a></li>
         {% endif %}
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('vote') }}">投票</a></li>
       </ul>
     </div>
   </div>
