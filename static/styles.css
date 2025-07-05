@@ -1,6 +1,9 @@
 body { padding-top: 70px; background-color: #fff; }
 .navbar-brand, .nav-link, .btn-primary, .btn-outline-danger { color: #c00 !important; }
 .btn-primary, .btn-outline-danger { background-color: #c00; border-color: #c00; }
+
+footer { color: #c00; }
+
 @media (max-width: 576px) {
   h1 { font-size: 1.5rem; }
 }
