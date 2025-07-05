@@ -1,2 +1,31 @@
 # Youth-Policy-Parliament
-若者政策議会
+
+若者政策議会公式サイトのサンプル実装です。Flask フレームワークを用いてログイン機能や議題の提案、議員専用ページへのアクセスを提供します。投票は Google フォームを埋め込んで行います。
+
+## セットアップ
+
+Python 3 がインストールされた環境で以下を実行して仮想環境を作成・依存関係をインストールします。
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## 実行
+
+```bash
+python app.py
+```
+
+初回起動時に `app.db` が作成されます。管理者が議員を選出する際は、SQLite などで `user` テーブルの `is_legislator` フラグを `1` に設定してください。
+
+## 機能
+
+- 18 歳以下のみ登録可能な会員登録
+- Flask-Login を用いたログイン/ログアウト
+- 議題提案フォーム (ログイン後利用可能)
+- 議員フラグが立っているユーザーのみアクセスできる議員専用ページ
+- Google フォームを iframe で埋め込んだ投票ページ
+
+レスポンシブデザインのため、Bootstrap 5 を利用しています。

@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block title %}議題提案{% endblock %}
+{% block content %}
+<h2>議題の提案</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.title.label }}
+        {{ form.title(class='form-control') }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label }}
+        {{ form.description(class='form-control', rows=4) }}
+    </div>
+    <div class="mb-3">
+        {{ form.submit(class='btn btn-primary') }}
+    </div>
+</form>
+{% endblock %}

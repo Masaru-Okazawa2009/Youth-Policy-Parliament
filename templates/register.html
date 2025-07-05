@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+{% block title %}登録{% endblock %}
+{% block content %}
+<h2>会員登録</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.username.label }}
+        {{ form.username(class='form-control') }}
+    </div>
+    <div class="mb-3">
+        {{ form.age.label }}
+        {{ form.age(class='form-control') }}
+    </div>
+    <div class="mb-3">
+        {{ form.password.label }}
+        {{ form.password(class='form-control') }}
+    </div>
+    <div class="mb-3">
+        {{ form.submit(class='btn btn-primary') }}
+    </div>
+</form>
+{% endblock %}
