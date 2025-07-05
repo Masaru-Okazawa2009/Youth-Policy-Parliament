@@ -67,7 +67,9 @@ class ContactForm(FlaskForm):
     submit = SubmitField("送信")
 
 
+
 @app.route("/")
+
 def index():
     return render_template('index.html')
 
