@@ -1,6 +1,18 @@
 {% extends 'layout/base.html' %}
 {% block title %}ホーム{% endblock %}
 {% block content %}
-<h1>若者政策議会へようこそ</h1>
-<p>このサイトでは若者による政策提案や議員選挙への参加ができます。</p>
+<div class="text-center">
+  <h1>若者政策議会</h1>
+  <p class="lead">未来をつくるのは、私たち</p>
+  <p>若者の声を政策に反映させることを目指します。</p>
+  <p>
+    <a href="{{ url_for('static', filename='docs/constitution.pdf') }}" class="btn btn-outline-danger me-2">定款PDF</a>
+    <a href="#" class="btn btn-outline-danger">紹介動画</a>
+  </p>
+  <p>
+    <a href="#" class="me-2">Instagram</a>
+    <a href="#" class="me-2">YouTube</a>
+    <a href="#">X</a>
+  </p>
+</div>
 {% endblock %}
