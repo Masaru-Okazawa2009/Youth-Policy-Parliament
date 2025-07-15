@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>参加方法｜若者政策議会</title>
+
+  <!-- Font Awesome（アイコン用）-->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-e5o54vAFaN/ZUkQ77yV+73m0jc9YwPuxgVUmJWuVUuQ+s73FSinVYGsW9JmGOT2s5xl0ULiRP9bAF2L0/bszRw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 共通スタイル -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- 共通スクリプト（ヘッダー／フッター挿入 & Discord ログイン） -->
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+    <header>
+    <!-- header.html -->
+<nav class="nav">
+  <!-- ブランド（ロゴ + サイト名） -->
+  <a href="index.html" class="brand">
+    <img src="assets/img/logo.png" alt="若者政策議会 ロゴ" class="brand-logo" />
+    <span class="brand-name">若者政策議会</span>
+  </a>
+
+  <!-- ページリンク -->
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="join.html">Join / 提案</a>
+  <a href="members.html" id="member-link">Members</a>
+
+  <!-- SNS -->
+  <a href="https://instagram.com/youth.policy.parliment?igsh=MWk5eDdhcHp6NTZhdA=="  class="icon" target="_blank" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a href="https://youtube.com/@youth.policy.parliment?si=GMBiC4MNccFRPx_h"_blank"    class="icon" target="_blank" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+  <a href="https://x.com/MasaruOkaz18402?t=kxJFgmvLleYV4pM_Rk0Nfw&s=09"            class="icon" target="_blank" aria-label="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <!-- Login -->
+  <button id="login-btn"  class="btn">Login</button>
+  <button id="logout-btn" class="btn" style="display:none;">Logout</button>
+</nav>
+
+  </header>
+
+  <main>
+    <h1>参加方法 &amp; 議題提案</h1>
+
+    <section style="margin-bottom:2rem;">
+      <h2>1. 議員応募</h2>
+      <p>
+        以下のボタンからGoogle Formにアクセスし応募してください。
+        <strong>高校生</strong>、のみ議員になることが出来ます。応募締め切りは、8月29日までです。お気軽にお問い合わせください。
+      </p>
+      <p style="text-align:center;margin:1rem 0;">
+        <a href="https://forms.gle/wUBejjymUGwZSrLg7" class="btn-cta" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-discord"></i> 議員に応募する
+        </a>
+      </p>
+    </section>
+
+    <section style="margin-bottom:2rem;">
+      <h2>2. Googleフォームで議題を提案</h2>
+      <p>
+        「こんなテーマを議論してほしい」「自分も発表したい」などの要望は Google フォームから送信してください。
+        運営メンバーが確認し、次回議題の候補に追加します。
+      </p>
+
+      <!-- Googleフォーム埋め込み例：URLは実際のフォームIDに差し替えてください -->
+      <iframe src="https://forms.gle/BBgZ3uVyK8SKB8MF6"
+              width="100%" height="640" frameborder="0" marginheight="0" marginwidth="0">
+        読み込んでいます…
+      </iframe>
+
+      <!-- ※ フォームを別タブで開きたい場合は下記リンクを使うことも可能
+      <p style="text-align:center;margin-top:1rem;">
+        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform"
+           class="btn-cta" target="_blank" rel="noopener noreferrer">
+          フォームを新しいタブで開く
+        </a>
+      </p>
+      -->
+    </section>
+
+    <section>
+      <h2>有権者としての参加条件</h2>
+      <ul>
+        <li>日本人の高校生（18歳以下）であること</li>
+        <li>Discordアカウントを所持し、サーバールールを守れること</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom:2rem">
+      <h2>立候補者の条件</h2>
+      <ul>
+        <li>15歳以上18歳以下であること</li>
+        <li>Discordアカウントを所持し、サーバールールを守れること</li>
+        <li>毎週土曜日、毎回参加できること</li>
+        <li>熱意とやる気がある人！</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+  <p>© 2025 若者政策議会 / Youth Policy Parliament</p>
+</footer>
+
+
+  <!-- 追加スタイル（ボタンなど） -->
+  <style>
+    .btn-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      background:var(--green);
+      color:#fff;
+      padding:.75rem 1.25rem;
+      border-radius:6px;
+      font-weight:700;
+      text-decoration:none;
+      transition:opacity .2s;
+    }
+    .btn-cta:hover{opacity:.85;}
+  </style>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Discord 認証完了</title>
+  <script>
+    // ここでは main.js を読み込まずに即処理
+    const hash = new URLSearchParams(location.hash.substr(1));
+    const token = hash.get("access_token");
+    if (token) {
+      localStorage.setItem("discord_token", token);
+      // 必要ならここで guild メンバー API を叩いてロール確認
+      location.href = "members.html";
+    } else {
+      alert("認証に失敗しました");
+      location.href = "index.html";
+    }
+  </script>
+</head>
+<body></body>
+</html>
